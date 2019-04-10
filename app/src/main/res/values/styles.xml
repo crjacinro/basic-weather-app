@@ -17,6 +17,15 @@
     <style name="ProgressDialogTheme" parent="Theme.AppCompat.Light.Dialog">
     </style>
 
+    <style name="MaterialLightHeadlineH1Big">
+        <item name="android:textSize">32sp</item>
+        <item name="android:fontFamily">sans-serif-black</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">#dd000000</item>
+        <item name="android:lineSpacingExtra">8sp</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
     <style name="MaterialLightHeadlineH1">
         <item name="android:textSize">24sp</item>
         <item name="android:fontFamily">sans-serif-black</item>

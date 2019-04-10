@@ -5,17 +5,14 @@ import android.app.Dialog
 import android.os.Bundle
 import com.serge.basicweatherapp.R
 
-const val PROGRESS_BAR_TEXT = "PROGRESS_BAR_DIALOG"
-
 class ProgressBarDialog : androidx.fragment.app.DialogFragment() {
 
     companion object {
         const val PROGRESS_BAR_TAG = "PROGRESS_BAR_TAG"
 
-        fun newInstance(text: String?): ProgressBarDialog {
+        fun newInstance(): ProgressBarDialog {
             val progressBarDialog = ProgressBarDialog()
             val bundle = Bundle()
-            bundle.putString(PROGRESS_BAR_TEXT, text)
             progressBarDialog.arguments = bundle
             return progressBarDialog
         }

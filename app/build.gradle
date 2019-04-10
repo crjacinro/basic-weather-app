@@ -14,7 +14,7 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField "java.lang.String", "WEATHER_API_URL", "\"http://api.weatherbit.io/v2.0/forecast/daily?city=Manila&key=508da2c0980a44c59636db1de86a5132&days=10\""
+        buildConfigField "java.lang.String", "WEATHER_API_URL", "\"http://api.weatherbit.io/v2.0/forecast/daily?city=Manila&key=508da2c0980a44c59636db1de86a5132&days=11\""
     }
     buildTypes {
         release {
