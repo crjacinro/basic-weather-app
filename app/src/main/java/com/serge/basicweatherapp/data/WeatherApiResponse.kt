@@ -14,6 +14,8 @@ class WeatherApiResponse(json: String) : JSONObject(json) {
 
 class WeatherData(json: String) : JSONObject(json) {
     val temp = this.optDouble("temp")
+    val datetime = this.optString("datetime")
+    val ts = this.optLong("ts")
     val weather = Weather(this.optJSONObject("weather").toString())
 }
 

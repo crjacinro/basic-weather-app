@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.cardview.widget.CardView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/featured_card"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        app:cardCornerRadius="2dp"
-        android:layout_margin="@dimen/home_card_inner_margin"
-        tools:background="@mipmap/night_bg">
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/home_card_inner_margin">
+
+    <ImageView
+            android:id="@+id/featured_card_image"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:scaleType="fitXY"
+            tools:background="@mipmap/night_bg"/>
 
     <RelativeLayout
             android:layout_width="match_parent"
@@ -53,4 +56,4 @@
 
     </RelativeLayout>
 
-</androidx.cardview.widget.CardView>
+</RelativeLayout>

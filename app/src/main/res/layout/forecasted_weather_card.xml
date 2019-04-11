@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.cardview.widget.CardView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/featured_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="2dp"
-        android:layout_margin="@dimen/home_card_inner_margin"
-        tools:background="@mipmap/night_bg">
+        android:layout_margin="@dimen/home_card_inner_margin">
+
+    <ImageView
+            android:id="@+id/featured_card_image"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:scaleType="fitXY"
+            tools:background="@mipmap/night_bg"
+            android:visibility="gone"/>
 
     <RelativeLayout
             android:layout_width="match_parent"
@@ -18,24 +22,22 @@
 
         <TextView
                 android:id="@+id/heading"
-                style="@style/MaterialLightTitle"
+                style="@style/MaterialLightSubheadSecondaryBlack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textAllCaps="true"
                 android:layout_alignParentStart="true"
                 tools:text="Today, April 10, 2019"/>
 
         <TextView
                 android:id="@+id/description"
-                style="@style/MaterialLightSubheadH3"
+                style="@style/MaterialLightSubheadSecondaryBlack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_alignParentEnd="true"
-                android:textAllCaps="true"
                 tools:text="35.6 \u2103"/>
 
     </RelativeLayout>
 
-</androidx.cardview.widget.CardView>
+</RelativeLayout>

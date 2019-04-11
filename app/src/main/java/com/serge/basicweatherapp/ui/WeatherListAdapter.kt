@@ -5,15 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.ImageView
 import android.widget.TextView
-import androidx.cardview.widget.CardView
 import com.serge.basicweatherapp.R
 import com.serge.basicweatherapp.data.WeatherView
 
 const val FEATURED_INDEX = 0
 
 class WeatherListAdapter(
-    context: Context,
+    private val context: Context,
     private val dataSource: List<WeatherView>
 ) : BaseAdapter() {
     private val inflater: LayoutInflater = LayoutInflater.from(context)
@@ -25,7 +25,7 @@ class WeatherListAdapter(
     override fun getItemViewType(position: Int) = dataSource[position].type
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        var vh: ViewHolder?
+        val vh: ViewHolder?
         val listItem = dataSource[position]
         val viewType = getItemViewType(position)
         var view: View? = convertView
@@ -48,7 +48,7 @@ class WeatherListAdapter(
 
         if (position == 0) {
             vh.temperature?.text = listItem.temperature
-            vh.card?.setBackgroundResource(R.mipmap.night_bg)
+            vh.card?.background = listItem.bgDrawable
         }
 
         return view!!
@@ -59,6 +59,6 @@ class WeatherListAdapter(
         val description: TextView? = rowView?.findViewById(R.id.description)
 
         val temperature: TextView? = rowView?.findViewById(R.id.temperature)
-        val card: CardView? = rowView?.findViewById(R.id.featured_card)
+        val card: ImageView? = rowView?.findViewById(R.id.featured_card_image)
     }
 }
