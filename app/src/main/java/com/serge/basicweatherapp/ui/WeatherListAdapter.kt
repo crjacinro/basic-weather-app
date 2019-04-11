@@ -13,9 +13,15 @@ import com.serge.basicweatherapp.data.WeatherView
 const val FEATURED_INDEX = 0
 
 class WeatherListAdapter(
-    private val context: Context,
-    private val dataSource: List<WeatherView>
+    context: Context,
+    private val dataSource: List<WeatherView>,
+    private val eventListener: AdapterEvent
 ) : BaseAdapter() {
+
+    interface AdapterEvent {
+        fun onItemClicked(weatherView: WeatherView)
+    }
+
     private val inflater: LayoutInflater = LayoutInflater.from(context)
 
     override fun getCount() = dataSource.size
@@ -31,10 +37,10 @@ class WeatherListAdapter(
         var view: View? = convertView
 
         if (convertView == null) {
-            if (viewType == FEATURED_INDEX) {
-                view = inflater.inflate(R.layout.featured_weather_card, null)
+            view = if (viewType == FEATURED_INDEX) {
+                inflater.inflate(R.layout.featured_weather_card, null)
             } else {
-                view = inflater.inflate(R.layout.forecasted_weather_card, null)
+                inflater.inflate(R.layout.forecasted_weather_card, null)
             }
 
             vh = ViewHolder(view)
@@ -43,12 +49,16 @@ class WeatherListAdapter(
             vh = (view?.tag) as ViewHolder
         }
 
-        vh.heading?.text = listItem.title
+        vh.heading?.text = if (position == 0) listItem.featureTitle else listItem.forecastTitle
         vh.description?.text = listItem.description
 
         if (position == 0) {
             vh.temperature?.text = listItem.temperature
             vh.card?.background = listItem.bgDrawable
+        }
+
+        view?.setOnClickListener {
+            eventListener.onItemClicked(dataSource[position])
         }
 
         return view!!

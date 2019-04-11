@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:showIn="@layout/activity_weather_details"
+        tools:context=".WeatherDetailsActivity">
+
+    <ImageView
+            android:id="@+id/content_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            tools:background="@mipmap/night_bg"/>
+
+    <TextView
+            android:id="@+id/location_label"
+            style="@style/MaterialLightHeadlineH1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/home_card_margin"
+            android:textColor="@color/colorTextPrimary"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Today, April 10, 2019"/>
+
+    <TextView
+            android:id="@+id/temp_label"
+            style="@style/MaterialLightHeadlineH1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/location_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/home_card_margin"
+            android:textColor="@color/colorTextPrimary"
+            tools:text="32 degrees"/>
+
+    <TextView
+            android:id="@+id/wind_label"
+            style="@style/MaterialLightTitleH2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/temp_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/home_card_margin"
+            android:textColor="@color/colorTextPrimary"
+            tools:text="Wind: 33 m/s NW"/>
+
+    <TextView
+            android:id="@+id/pressure_label"
+            style="@style/MaterialLightTitleH2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/wind_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/home_card_margin"
+            android:textColor="@color/colorTextPrimary"
+            tools:text="500 psi"/>
+
+    <TextView
+            android:id="@+id/description_label"
+            style="@style/MaterialLightTitleH2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/pressure_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/home_card_margin"
+            android:textColor="@color/colorTextPrimary"
+            tools:text="Cloudy"/>
+
+    <TextView
+            android:id="@+id/last_updated_label"
+            style="@style/MaterialLightSubhead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/description_label"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/home_card_margin"
+            android:textColor="@color/colorTextPrimary"
+            tools:text="Last Updated: 7:80:30"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
