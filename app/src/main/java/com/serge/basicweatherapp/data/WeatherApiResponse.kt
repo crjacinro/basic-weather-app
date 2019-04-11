@@ -13,6 +13,10 @@ class WeatherApiResponse(json: String) : JSONObject(json) {
 }
 
 class WeatherData(json: String) : JSONObject(json) {
-    val app_max_temp = this.optDouble("app_max_temp")
-    val app_min_temp = this.optDouble("app_min_temp")
+    val temp = this.optDouble("temp")
+    val weather = Weather(this.optJSONObject("weather").toString())
+}
+
+class Weather(json: String) : JSONObject(json) {
+    val description: String? = this.optString("description")
 }
