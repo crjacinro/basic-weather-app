@@ -3,16 +3,17 @@ package com.serge.basicweatherapp
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.serge.basicweatherapp.data.WeatherApiResponse
+import com.serge.basicweatherapp.data.WeatherView
 import com.serge.basicweatherapp.ui.ProgressBarDialog
 import com.serge.basicweatherapp.ui.ProgressBarDialog.Companion.PROGRESS_BAR_TAG
-import kotlinx.android.synthetic.main.activity_scrolling.*
+import com.serge.basicweatherapp.ui.WeatherListAdapter
+import kotlinx.android.synthetic.main.content_scrolling.*
 
 open class WeatherActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scrolling)
-        setSupportActionBar(toolbar)
 
         fetchWeatherData()
     }
@@ -27,6 +28,31 @@ open class WeatherActivity : AppCompatActivity() {
         hideProgressBar()
 
         val weatherResponse = WeatherApiResponse(data!!)
+
+        intializeView(weatherResponse)
+    }
+
+    private fun intializeView(weatherResponse: WeatherApiResponse) {
+        val adapter = WeatherListAdapter(this, mapResponseToView(weatherResponse))
+
+        weather_list.adapter = adapter
+    }
+
+    private fun mapResponseToView(weatherResponse: WeatherApiResponse): List<WeatherView> {
+        val weatherView = mutableListOf<WeatherView>()
+
+        weatherResponse.data?.forEachIndexed { index, it ->
+            weatherView.add(
+                WeatherView(
+                    "Today",
+                    it.temp.toString(),
+                    it.weather.description!!,
+                    if (index == 0) index else 1
+                )
+            )
+        }
+
+        return weatherView
     }
 
     private fun showProgressBar() {

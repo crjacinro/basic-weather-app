@@ -6,7 +6,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/featured_card"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="wrap_content"
         app:cardCornerRadius="2dp"
         android:layout_margin="@dimen/home_card_inner_margin"
         tools:background="@mipmap/night_bg">
@@ -18,38 +18,23 @@
 
         <TextView
                 android:id="@+id/heading"
-                style="@style/MaterialLightHeadlineH1"
-                android:layout_width="match_parent"
+                style="@style/MaterialLightTitle"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/home_card_margin"
-                android:textColor="@color/colorTextPrimary"
                 android:gravity="center"
                 android:textAllCaps="true"
+                android:layout_alignParentStart="true"
                 tools:text="Today, April 10, 2019"/>
 
         <TextView
-                android:id="@+id/temperature"
-                style="@style/MaterialLightHeadlineH1Big"
-                android:layout_width="match_parent"
+                android:id="@+id/description"
+                style="@style/MaterialLightSubheadH3"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/home_card_margin"
-                android:layout_below="@id/heading"
-                android:textColor="@color/colorTextPrimary"
                 android:gravity="center"
+                android:layout_alignParentEnd="true"
                 android:textAllCaps="true"
                 tools:text="35.6 \u2103"/>
-
-        <TextView
-                android:id="@+id/description"
-                style="@style/MaterialLightTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/home_card_margin"
-                android:layout_below="@id/temperature"
-                android:textColor="@color/colorTextPrimary"
-                android:gravity="center"
-                android:textAllCaps="true"
-                tools:text="Overcast Clouds"/>
 
     </RelativeLayout>
 
